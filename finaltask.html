@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>test 2 name</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+    <script>
+        function MultiNum(){
+            Num1 = document.getElementById("Num1").value;
+            Num2 = document.getElementById("Num2").value;
+            Multi = (parseInt(Num1) * parseInt(Num2));
+
+            document.getElementById("Result").innerHTML = Multi;
+
+
+        }
+
+        function DivNum(){
+            Num1 = document.getElementById("Num1").value;
+            Num2 = document.getElementById("Num2").value;
+            Div = (parseInt(Num1) / parseInt(Num2));
+
+            document.getElementById("Result").innerHTML = Div;
+
+
+        }
+
+        function totalcost(){
+            var tshirt = "10";
+            var socks = "8";
+            var plates = "20";
+            var total = "";
+            
+            var total = (parseInt(tshirt) + parseInt(socks) + parseInt(plates));
+
+            document.getElementById("totaltext").innerHTML = "The total cost of your order is $" + total;
+        }
+        
+        function balancebtn(){
+            var backacc = "100";
+            var lunch = "20";
+            var dinner = "50";
+            var salary = "200";
+            var balance = "";
+            
+            var balance = (parseInt(backacc) - parseInt(lunch) - parseInt(dinner)) + parseInt(200);
+
+            document.getElementById("balancetext").innerHTML = "Your Bank Account has  $" + balance;
+        }
+
+        function Order(){ 
+            itemNum = document.getElementById("items").value;
+            itemNumbers = itemNum;
+            document.getElementById("item-num").innerHTML = itemNumbers;
+
+            item = document.getElementById("items").value;
+            product = "15.97";
+
+            itemcost = parseFloat(product)*parseFloat(item);
+            document.getElementById("itemcost").innerHTML = "$" + itemcost.toFixed(2);
+            ship = "4.99";
+
+            document.getElementById("ship").innerHTML = "4.99"
+
+            totalbefore = parseFloat(itemcost)+parseFloat(ship);
+            document.getElementById("totalbefore").innerHTML = "$" + totalbefore.toFixed(2);
+
+            tax = Math.round(parseFloat(totalbefore)*10)/100;
+            document.getElementById("tax").innerHTML = "$" + tax.toFixed(2);
+
+            total = parseFloat(totalbefore)+parseFloat(tax);
+            document.getElementById("total").innerHTML = "$" + total.toFixed(2);
+        }
+
+    </script>
+    
+    <style>
+        .main{
+            border: 1px;
+            border-style: solid;
+            width: 300px;
+            height: 250px;
+            padding: 5px 10px 5px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lab Exercise 2</h1>
+    <div class="main">
+        <p >1st Number:</p>
+        <input type="text" size="20" id="Num1" >
+        <p id="num2" >2nd Number:</p>
+        <input type="text" size="20" id="Num2"> <br>
+        <input type="button" value="Multiply" onclick="MultiNum()" style="margin-top: 10px;">
+        <input type="button" value="Divide" onclick="DivNum()">
+        <p>The Result is:</p>
+        <h3 id="Result"></h3>
+    </div>
+
+    <h1>Lab Exercise 3 1h.</h1>
+    <p>T-Shirt -- $10</p>
+    <p>Socks -- $8</p>
+    <p>Plates -- $20</p>
+    <input type="button" value="Total" onclick="totalcost()">
+    <p id="totaltext"></p>
+
+    <h1>Lab Exercise 3 1i.</h1>
+    <p>Your back account = $100</p>
+    <p>- lunch -- $20</p>
+    <p>- dinner -- $50</p>
+    <p>+ salary -- $200</p>
+    <input type="button" value="Check Your Balance" onclick="balancebtn()">
+    <p id="balancetext"></p>
+
+    <h1>Lab Exercise 3-1</h1>
+
+    <p style="display:inline-block"> Items: </p>
+    <input type="text" size="10" id="items">
+    <p style="block;"></p>
+    <input type="button" value="Enter" onclick="Order()">
+
+    <div>
+        <h2> Order Summary </h2>
+        <p style="display:inline-block; width:250px;"> Items( <span id="item-num"></span> ): </p>
+        <p id="itemcost" style="display:inline-block"> $0.00 </p>
+        <p style="display:block;margin:0px;"> </p>
+        <p style="display:inline-block;width:250px;"> Shipping and Handling: </p>
+        <p id="ship" style="display:inline-block"></p>
+        <p style="display:block;margin:0px;"></p>
+        <p style="display:inline-block;width:250px;"> Total before tax: </p>
+        <p id="totalbefore" style="display:inline-block"></p>
+        <p style="display:block;margin:0px;"></p>
+        <p style="display:inline-block;width:250px;"> Estimated tax(10%): </p>
+        <p id="tax" style="display:inline-block"> </p>
+        <p style="display:block;margin:0px;"></p>
+        <hr>
+        <h2 style="display:inline-block;width:250px;font-weight: bold;color: red;"> Order Total: </h2>
+        <h2 id="total" style="display:inline-block;font-weight: bold;color: red;"> $0.00</h2>
+
+    </div>
+
+</body>
+</html>
